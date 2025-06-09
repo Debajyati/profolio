@@ -70,7 +70,7 @@ const NotFoundModal = forwardRef<NotFoundModalRef, NotFoundModalProps>(
                             onClick={onClick}
                             style={{
                                 backgroundColor: "rgba(0, 20, 40, 0.95)",
-                                order: "2px solid hsl(120, 100%, 35%)",
+                                border: "2px solid hsl(120, 100%, 35%)",
                                 borderRadius: "8px",
                                 padding: "2rem",
                                 textAlign: "center",
