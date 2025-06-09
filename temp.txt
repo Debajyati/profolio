@@ -1,0 +1,48 @@
+/*
+ * Here I create and keep temporary code snippets that I am thinking now or thought before of using somewhere in my code.
+ */
+
+applyStyle(style) {
+  const currentTarget = dialog.current as HTMLDialogElement;
+  currentTarget.style = JSON.stringify(style);
+  const newTarget = divRef.current as HTMLDivElement;
+  newTarget.style = JSON.stringify(style);
+},
+
+export type modalRef = {
+  open: () => void;
+  close: () => void;
+  isopen: () => boolean | undefined;
+  applyStyle: (style: React.CSSProperties) => void;
+};
+
+const JSXARRAY = [
+  {
+      href:"https://maps.app.goo.gl/7yTyMhrMxgutMpf18",
+      el: () => (
+      <span>
+        <GoogleMapLocationSVG />{" "}
+      </span>{" "}
+      Barasat, West Bengal, India 743234
+      )
+  },
+  {
+      href="mailto:ddebajyati@gmail.com",
+      el: () => (
+      <span style={{ fontSize: "13px" }} className="material-symbols-outlined">
+        mail
+      </span>{" "}
+      ddebajyati@gmail.com
+      )
+  },
+  {
+      href:"https://discordapp.com/users/1086884627899228170",
+      el: () => (
+      <span>
+        <DiscordSVG />
+      </span>{" "}
+      Say Hello in Discord
+      )
+  }
+];
+
