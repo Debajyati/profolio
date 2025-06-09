@@ -1,7 +1,7 @@
 import type React from "react";
 import "../bootstrap/main.css";
 import Hero from "./Hero";
-import backgroundImage from "../assets/images/futuristicHD.jpg";
+import backgroundImage from "../assets/images/Alien-Spaceship-by-Debajyati-Dey.png";
 
 const borderIds = [
   "site-border-left",
