@@ -105,95 +105,99 @@ const Contact = (): React.JSX.Element => {
     }
   };
 
-const mouseOverEventHandler = (
-  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-) => {
-  e.currentTarget.style.transform = "scale(1.1)";
-  e.currentTarget.style.filter = "drop-shadow(0 0 12px rgba(0, 255, 204, 0.8))";
-};
-const mouseOutEventHandler = (
-  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-) => {
-  e.currentTarget.style.transform = "scale(1)";
-  e.currentTarget.style.filter = "drop-shadow(0 0 8px rgba(0, 255, 204, 0.5))";
-};
+  const mouseOverEventHandler = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.currentTarget.style.transform = "scale(1.1)";
+    e.currentTarget.style.filter =
+      "drop-shadow(0 0 12px rgba(0, 255, 204, 0.8))";
+  };
+  const mouseOutEventHandler = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.currentTarget.style.transform = "scale(1)";
+    e.currentTarget.style.filter =
+      "drop-shadow(0 0 8px rgba(0, 255, 204, 0.5))";
+  };
 
   return (
     <div>
       <Background />
-      <Text
-        style={{
-          color: "cyan",
-          top: "12rem",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-        as="h1"
-        className="h2"
-      >
-        04 : Contact
-      </Text>
-      <br />
-      <Text
-        style={{
-          color: "cyan",
-          top: "12rem",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-        as="h3"
-        className="h3"
-      >
-        Have an Idea in Mind?
-      </Text>
-      <br />
-      <Text
-        style={{
-          color: "cyan",
-          top: "12rem",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-        as="h3"
-        className="h3"
-      >
-        Connect With ME
-      </Text>
-      <Text
-        style={{
-          color: "cyan",
-          top: "13rem",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-        as="h6"
-        className="h6"
-      >
-        <DownArrowIcon />
-      </Text>
+      <Animator>
+        <Text
+          style={{
+            color: "cyan",
+            top: "15rem",
+            margin: 0,
+            padding: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+          as="h1"
+          className="h2"
+        >
+          04 : Contact
+        </Text>
+        <br />
+        <Text
+          style={{
+            color: "cyan",
+            top: "14rem",
+            margin: 0,
+            padding: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+          as="h3"
+          className="h3"
+        >
+          Have an Idea in Mind?
+        </Text>
+        <br />
+        <Text
+          style={{
+            color: "cyan",
+            top: "14rem",
+            margin: 0,
+            padding: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+          as="h3"
+          className="h3"
+        >
+          Connect With ME
+        </Text>
+        <Text
+          style={{
+            color: "cyan",
+            top: "17rem",
+            margin: 0,
+            padding: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+          as="h5"
+          className="h5"
+        >
+          <DownArrowIcon />
+        </Text>
+      </Animator>
 
       <section
         style={{
           marginRight: "10rem",
         }}
       >
-        <article>
+        <article style={{ bottom: "20rem" }}>
           <form
             onSubmit={handleSubmitForm}
             style={{
@@ -202,7 +206,8 @@ const mouseOutEventHandler = (
               flexWrap: "wrap",
               justifyContent: "center",
               position: "relative",
-              top: "25rem",
+              top: "20rem",
+              right: "25rem",
               marginRight: "10rem",
               minHeight: "100%",
               overflowY: "hidden",
@@ -305,9 +310,9 @@ const mouseOutEventHandler = (
         <section>
           <aside
             className="col-md-5 address-container"
-            style={{ float: "right", bottom: "10rem" }}
+            style={{ float: "right", bottom: "18rem" }}
           >
-            <div>
+            <div style={{ top: "15rem" }}>
               <Text as="h3" style={{ color: "cyan" }}>
                 Get In Touch
               </Text>
@@ -324,7 +329,9 @@ const mouseOutEventHandler = (
                   <li key={index}>
                     <big>
                       <div>
-                        <a onMouseOver={mouseOverEventHandler} onMouseOut={mouseOutEventHandler}
+                        <a
+                          onMouseOver={mouseOverEventHandler}
+                          onMouseOut={mouseOutEventHandler}
                           href={href}
                           style={{
                             color: "cyan",
@@ -340,7 +347,7 @@ const mouseOutEventHandler = (
             </div>
 
             <div>
-              <Text as="h3" style={{ color: "cyan" }}>
+              <Text as="h3" style={{ color: "cyan", top: "5rem" }}>
                 Follow me on social networks
               </Text>
 
@@ -355,7 +362,9 @@ const mouseOutEventHandler = (
                   allIconsArray,
                   links.slice(0, links.length - 1),
                   (Icon, link, id) => (
-                    <Text onMouseOver={mouseOverEventHandler} onMouseOut={mouseOutEventHandler}
+                    <Text
+                      onMouseOver={mouseOverEventHandler}
+                      onMouseOut={mouseOutEventHandler}
                       key={id}
                       as="a"
                       href={link.URL}
@@ -363,6 +372,7 @@ const mouseOutEventHandler = (
                       style={{
                         color: "cyan",
                         marginRight: id < links.length - 1 ? "1rem" : "0",
+                        top: "5rem",
                       }}
                     >
                       <Icon />
