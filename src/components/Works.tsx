@@ -2,7 +2,7 @@ import type React from "react";
 import Background from "./arwes/Background.tsx";
 
 import WorkCard from "./WorkCard";
-import { Text } from "@arwes/react";
+import { Animator, Text } from "@arwes/react";
 
 import NKryptorImg from "../public/NKryptor.png";
 import EfficienvimImg from "../public/Efficienvim.png";
@@ -66,7 +66,7 @@ const Works: React.FC = () => {
   return (
     <>
       <Background />
-
+<Animator>
       <div
         className="section-container"
         style={{
@@ -130,6 +130,7 @@ const Works: React.FC = () => {
           </div>
         </div>
       </div>
+      </Animator>
     </>
   );
 };
