@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  article {
+    display: none;
+  }
+
+  button {
+    box-sizing: border-box;
+  }
+  aside {
+    top: 20rem;
+  }
+}
+
+input:focus {
+  background-color: transparent;
+}
+
