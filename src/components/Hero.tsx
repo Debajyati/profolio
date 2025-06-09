@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ backgroundImage }) => {
   };
 
   const handleMouseLeave = () => {
-    setBgPosition("center center"); 
+    setBgPosition("center center");
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -64,20 +64,19 @@ const Hero: React.FC<HeroProps> = ({ backgroundImage }) => {
           <div className="col-xs-12">
             <div className="hero-full-wrapper">
               <div className="text-content">
-                <h1 style={{fontFamily:"JetBrains Mono", color: "cyan"}}>
+                <h1 style={{ fontFamily: "JetBrains Mono", color: "cyan" }}>
                   Hello,
                   <br />
-                  <span id="typed-strings">
-                    <ReactTyped 
-                    strings={typedStrings}
-                      loop={true}
-                      typeSpeed={100}
-                      backSpeed={20}
-                      showCursor={true}
-                    />
-                  </span>
-                  <span id="typed"></span>
                 </h1>
+                <h2 style={{ fontFamily: "JetBrains Mono", color: "cyan" }}>
+                  <ReactTyped
+                    strings={typedStrings}
+                    loop={true}
+                    typeSpeed={100}
+                    backSpeed={20}
+                    showCursor={true}
+                  />
+                </h2>
               </div>
             </div>
           </div>
