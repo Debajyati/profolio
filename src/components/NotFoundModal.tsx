@@ -99,7 +99,7 @@ const NotFoundModal = forwardRef<NotFoundModalRef, NotFoundModalProps>(
                     0 0 20px hsl(200, 100%, 50%),
                     0 0 30px hsl(200, 100%, 40%)
                   `,
-                  fontFamily: "monospace",
+                  fontFamily: "JetBrains Mono",
                   letterSpacing: "0.1em",
                 }}
               >
@@ -129,7 +129,7 @@ const NotFoundModal = forwardRef<NotFoundModalRef, NotFoundModalProps>(
                     0 0 5px hsl(120, 100%, 45%),
                     0 0 10px hsl(120, 100%, 35%)
                   `,
-                  fontFamily: "monospace",
+                  fontFamily: "JetBrains Mono",
                   letterSpacing: "0.05em",
                 }}
               >
@@ -190,6 +190,7 @@ const NotFoundModal = forwardRef<NotFoundModalRef, NotFoundModalProps>(
                   borderColor: "hsl(120, 100%, 35%)",
                   color: "hsl(120, 100%, 80%)",
                   padding: "0.8rem 2rem",
+                  fontFamily: "JetBrains Mono",
                   fontSize: "1rem",
                   fontWeight: "bold",
                   textTransform: "uppercase",
