@@ -1,7 +1,17 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "../bootstrap/main.css";
-import NerfexFrame from "./arwes/frames/NerfexFrame";
+const NerfexFrame = React.lazy(() => import("./arwes/frames/NerfexFrame"));
 const currentYear = new Date().getFullYear();
+
+const FooterCore = () => (
+  <p>
+    <b>
+      <big>
+        <span>&copy; {currentYear} Debajyati Dey</span>
+      </big>
+    </b>
+  </p>
+);
 
 const Footer: React.FC = () => {
   return (
@@ -21,15 +31,11 @@ const Footer: React.FC = () => {
       <div>
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <div>
-            <NerfexFrame height={25}>
-            <p>
-              <b>
-                <big>
-                  <span>&copy; {currentYear} Debajyati Dey</span>
-                </big>
-              </b>
-            </p>
-            </NerfexFrame>
+            <Suspense fallback={<FooterCore />}>
+              <NerfexFrame height={25}>
+                <FooterCore />
+              </NerfexFrame>
+            </Suspense>
           </div>
         </div>
       </div>

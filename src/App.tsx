@@ -1,15 +1,26 @@
-import { useEffect, useRef, useState, type ReactElement } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactElement,
+  lazy,
+  Suspense,
+} from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Works from "./components/Works";
-import StartupModal, { type modalRef } from "./components/StartupModal";
-import Navbar from "./components/Navbar.tsx";
-import introsound from "./public/sounds/intro.mp3";
-import Footer from "./components/Footer.tsx";
-import Background from "./components/arwes/Background.tsx";
+import { HelmetProvider } from "react-helmet-async";
+
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Works = lazy(() => import("./components/Works"));
+
+import StartupModal ,{ type modalRef } from "./components/StartupModal";
 import NotFoundModal, { type NotFoundModalRef } from "./components/NotFoundModal.tsx";
+import introsound from "./public/sounds/intro.mp3";
+import SEO from "./components/SEO.tsx";
+import Background from "./components/arwes/Background.tsx";
+import Navbar from "./components/Navbar.tsx";
+import Footer from "./components/Footer.tsx";
+import Home from "./components/Home.tsx";
 
 const pathSet = new Set<string>(["/", "/works", "/about", "/contact"]);
 
@@ -25,13 +36,15 @@ const MainApp = (): ReactElement => {
   }, [location.pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/works" element={<Works />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      {/*<Route path="*" element={<NotFound />} />*/}
-    </Routes>
+    <Suspense fallback={<Background bgType="onlyMovingLines" />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        {/*<Route path="*" element={<NotFound />} />*/}
+      </Routes>
+    </Suspense>
   );
 };
 
@@ -65,13 +78,13 @@ const App = (): ReactElement => {
   useEffect(() => {
     if (!pathSet.has(location.pathname)) {
       notFoundModalRef.current?.open();
-    }
-    else if (!audioUnlocked) {
+    } else if (!audioUnlocked) {
       handleStartUpModalOpen();
     }
   }, [audioUnlocked, location.pathname]);
   return (
-    <>
+    <HelmetProvider>
+      <SEO />
       <StartupModal
         onClick={handleStartUpModalClose}
         ref={dialog}
@@ -96,12 +109,12 @@ const App = (): ReactElement => {
           <div className="App">
             <MainApp />
           </div>
-          { location.pathname !== "/" && <Footer/>}
+          {location.pathname !== "/" && <Footer />}
         </>
       ) : (
         <Background bgType="onlygrid" />
       )}
-    </>
+    </HelmetProvider>
   );
 };
 

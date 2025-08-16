@@ -2,9 +2,9 @@ import React from "react";
 import "../bootstrap/main.css";
 import "../bootstrap/main";
 import { NavLink } from "react-router-dom";
+import { bleepPlay } from "../bleeps";
 import HeaderFrame from "./arwes/frames/HeaderFrame";
 import CornerFrame from "./arwes/frames/CornerFrame";
-import { bleepPlay } from "../bleeps";
 
 const links = [
   {

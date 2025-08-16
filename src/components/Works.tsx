@@ -55,8 +55,7 @@ const workItems = [
   {
     number: "006/006",
     title: "json-parser",
-    description:
-      "A JSON Parser in C++",
+    description: "A JSON Parser in C++",
     imageUrl: JSONPARSERImg,
     detailPath: "https://github.com/Debajyati/json-parser",
   },
@@ -66,70 +65,70 @@ const Works: React.FC = () => {
   return (
     <>
       <Background />
-<Animator>
-      <div
-        className="section-container"
-        style={{
-          minHeight: "100vh",
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
+      <Animator>
         <div
-          className="container"
-          style={{ maxWidth: "1200px", margin: "0 auto" }}
+          className="section-container"
+          style={{
+            minHeight: "100vh",
+            paddingTop: "2rem",
+            paddingBottom: "2rem",
+          }}
         >
-          {/* Header Section */}
-          <div className="row section-container-spacer">
-            <div
-              className="col-sm-12 text-center"
-              style={{ marginBottom: "3rem" }}
-            >
-              <Text
-                style={{
-                  color: "hsl(180, 100%, 50%)",
-                  // fontSize: "2.5rem",
-                  fontWeight: "bold",
-                  margin: 0,
-                  padding: 0,
-                  top: "12rem",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                  textAlign: "center",
-                }}
-                as="h1"
-                className="h2"
+          <div
+            className="container"
+            style={{ maxWidth: "1200px", margin: "0 auto" }}
+          >
+            {/* Header Section */}
+            <div className="row section-container-spacer">
+              <div
+                className="col-sm-12 text-center"
+                style={{ marginBottom: "3rem" }}
               >
-                02 : Projects
-              </Text>
+                <Text
+                  style={{
+                    color: "hsl(180, 100%, 50%)",
+                    // fontSize: "2.5rem",
+                    fontWeight: "bold",
+                    margin: 0,
+                    padding: 0,
+                    top: "12rem",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    textAlign: "center",
+                  }}
+                  as="h1"
+                  className="h2"
+                >
+                  02 : Projects
+                </Text>
+              </div>
+            </div>
+
+            {/* Projects Grid */}
+            <div
+              className="projects-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                gap: "2rem",
+                padding: "0 1rem",
+                justifyItems: "center",
+              }}
+            >
+              {workItems.map((item, idx) => (
+                <WorkCard
+                  key={idx}
+                  number={item.number}
+                  title={item.title}
+                  description={item.description}
+                  imageUrl={item.imageUrl}
+                  detailPath={item.detailPath}
+                />
+              ))}
             </div>
           </div>
-
-          {/* Projects Grid */}
-          <div
-            className="projects-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "2rem",
-              padding: "0 1rem",
-              justifyItems: "center",
-            }}
-          >
-            {workItems.map((item, idx) => (
-              <WorkCard
-                key={idx}
-                number={item.number}
-                title={item.title}
-                description={item.description}
-                imageUrl={item.imageUrl}
-                detailPath={item.detailPath}
-              />
-            ))}
-          </div>
         </div>
-      </div>
       </Animator>
     </>
   );
