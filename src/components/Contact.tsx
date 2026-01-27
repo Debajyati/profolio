@@ -1,8 +1,6 @@
-import { account, databases, ID } from "../appwrite";
 import React, { useState, useEffect } from "react";
 import Background from "./arwes/Background.tsx";
 import { Animator, Text } from "@arwes/react";
-import { OAuthProvider } from "appwrite";
 import { allIconsArray } from "../constants/SocialsArray.jsx";
 import { linksArrayWithLabel as links } from "../constants/links.ts";
 import { transformParallel } from "../algorithm.ts";
@@ -29,7 +27,7 @@ const DownArrowIcon = () => (
 );
 
 const Contact = (): React.JSX.Element => {
-  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [colorOfFrameDeco, setColorOfFrameDeco] =
@@ -37,15 +35,6 @@ const Contact = (): React.JSX.Element => {
   const [colorOfNeroFrameBG, setColorOfNeroFrameBG] =
     useState<React.CSSProperties["color"]>("hsl(150, 95%, 15%)");
   const [toastKind, setToastKind] = useState<ToastKind>(undefined);
-
-  useEffect(() => {
-    account
-      .get()
-      .then((user) => setUserEmail(user.email))
-      .catch(() => {
-        console.log("Not logged In!");
-      });
-  }, []);
 
   useEffect(() => {
     if (toastKind) {
@@ -66,36 +55,27 @@ const Contact = (): React.JSX.Element => {
     return () => clearTimeout(tid);
   }, [active]);
 
-  const handleAuthenticate = () => {
-    bleepPlay("click");
-    const redirect = window.location.href;
-    account.createOAuth2Session(
-      OAuthProvider.Google,
-      redirect,
-      `${redirect}/fail`,
-    );
-  };
-
   const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       const subject = e.currentTarget.subject.value;
       const message = e.currentTarget.message.value;
-      const userId = await account.get().then((user) => user.$id);
-      const response = await databases.createDocument(
-        import.meta.env.VITE_APPWRITE_DATABASE_ID,
-        "contactMessages", // collection ID
-        ID.unique(),
-        {
+      const response = await fetch("https://contact-api-worker.ddebajyati.workers.dev/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           email: userEmail,
           subject,
           message,
-          userID: userId,
-          createdAt: new Date().toISOString(),
-        },
-      );
-      console.log("Message saved:", response);
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       setToastKind("success");
       setSubject("");
       setMessage("");
@@ -220,18 +200,11 @@ const Contact = (): React.JSX.Element => {
                     name="email"
                     inputType="email"
                     placeholder="Email"
-                    readonly={Boolean(userEmail)}
-                    value={userEmail || ""}
-                    onChangeHandler={
-                      userEmail
-                        ? undefined
-                        : (e: React.ChangeEvent<HTMLInputElement>) =>
-                            setUserEmail(e.target.value)
+                    value={userEmail}
+                    onChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setUserEmail(e.target.value)
                     }
-                    onFocus={() => {
-                      if (!userEmail) handleAuthenticate();
-                    }}
-                    autoComplete={userEmail ? undefined : "on"}
+                    autoComplete={"email"}
                   />
                 </div>
                 <div className="form-group">
