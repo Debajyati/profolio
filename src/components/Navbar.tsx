@@ -27,6 +27,11 @@ const links = [
     href: "/contact",
     end: false,
   },
+  {
+    name: "05 : Blog",
+    href: "/blog",
+    end: false,
+  },
 ];
 
 const Navbar: React.FC = () => {

@@ -12,6 +12,7 @@ import { HelmetProvider } from "react-helmet-async";
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
 const Works = lazy(() => import("./components/Works"));
+const Blog = lazy(() => import("./components/Blog"));
 
 import StartupModal ,{ type modalRef } from "./components/StartupModal";
 import NotFoundModal, { type NotFoundModalRef } from "./components/NotFoundModal.tsx";
@@ -22,7 +23,7 @@ import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/Footer.tsx";
 import Home from "./components/Home.tsx";
 
-const pathSet = new Set<string>(["/", "/works", "/about", "/contact"]);
+const pathSet = new Set<string>(["/", "/works", "/about", "/contact", "/blog"]);
 
 const MainApp = (): ReactElement => {
   const location = useLocation();
@@ -42,6 +43,7 @@ const MainApp = (): ReactElement => {
         <Route path="/works" element={<Works />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
         {/*<Route path="*" element={<NotFound />} />*/}
       </Routes>
     </Suspense>
