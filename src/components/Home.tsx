@@ -31,7 +31,6 @@ const SuspenseFallBack = () => (
               </h1>
               <h2 style={{ color: "cyan" }}>I'm Debajyati Dey</h2>
             </div>
-            <RaahBadge/>
           </div>
         </div>
       </div>
@@ -47,6 +46,7 @@ const Home = (): React.JSX.Element => {
       ))}
       <Suspense fallback={<SuspenseFallBack />}>
         <Hero backgroundImage={backgroundImage} />
+        <RaahBadge/>
       </Suspense>
     </>
   );
