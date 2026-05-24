@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
         right: "25%",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between"}}>
+      <div>
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <div>
             <Suspense fallback={<FooterCore />}>
@@ -37,16 +37,16 @@ const Footer: React.FC = () => {
               </NerfexFrame>
             </Suspense>
           </div>
-          <div
-            data-raah-live
-            data-pid="proj_9y2wfd50myhlou4d"
-            data-domain="debajyati.com"
-            data-theme="dark"
-            data-sticky="false"
-            data-position="bottom-right">
-          </div>
-          <script async src="https://t.raah.dev/badge.js"></script>
         </div>
+        <div
+        data-raah-live
+        data-pid="proj_9y2wfd50myhlou4d"
+        data-domain="debajyati.com"
+        data-theme="light"
+        data-sticky="false"
+        data-position="bottom-right">
+        </div>
+        <script async src="https://t.raah.dev/badge.js"></script>
       </div>
     </footer>
   );
