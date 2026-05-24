@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import "../bootstrap/main.css";
 const Hero = lazy(() => import("./Hero"));
 import backgroundImage from "../assets/images/Alien-Spaceship-by-Debajyati-Dey.png";
+import RaahBadge from "./Raah.tsx"
 
 const borderIds = [
   "site-border-left",
@@ -34,6 +35,7 @@ const SuspenseFallBack = () => (
         </div>
       </div>
     </div>
+    <RaahBadge/>
   </div>
 );
 
