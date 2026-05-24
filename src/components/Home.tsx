@@ -31,11 +31,11 @@ const SuspenseFallBack = () => (
               </h1>
               <h2 style={{ color: "cyan" }}>I'm Debajyati Dey</h2>
             </div>
+            <RaahBadge/>
           </div>
         </div>
       </div>
     </div>
-    <RaahBadge/>
   </div>
 );
 
