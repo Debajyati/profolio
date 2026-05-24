@@ -22,6 +22,7 @@ import Background from "./components/arwes/Background.tsx";
 import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/Footer.tsx";
 import Home from "./components/Home.tsx";
+import RaahBadge from "./components/Raah.tsx"
 
 const pathSet = new Set<string>(["/", "/works", "/about", "/contact", "/blog"]);
 
@@ -116,6 +117,7 @@ const App = (): ReactElement => {
       ) : (
         <Background bgType="onlygrid" />
       )}
+      <RaahBadge/>
     </HelmetProvider>
   );
 };
